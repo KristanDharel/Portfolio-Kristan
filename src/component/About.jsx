@@ -24,7 +24,7 @@ export const About = () => {
           <div className="md:w-1/2">
             <h3 className="text-2xl font-semibold mb-4">Who I Am</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              I'm a passionate Full Stack Developer with 5+ years of experience building web applications
+              I'm a passionate Full Stack Developer with 2+ years of experience building web applications
               using modern technologies. I specialize in the MERN stack but also have extensive experience
               with cloud services, Angular, and .NET development.
             </p>

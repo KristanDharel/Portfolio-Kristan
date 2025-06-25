@@ -1,18 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
-  FaReact,
-  FaNodeJs,
-  FaAws,
-  FaAngular,
   FaGithub,
-  FaLinkedin,
-  FaTwitter,
-  FaCode,
-  FaMobile,
-  FaCloud,
+  FaLinkedin
 } from "react-icons/fa";
-import { SiDotnet, SiMongodb, SiExpress, SiDocker } from "react-icons/si";
-
+// import dharel from "/public/dharel"
 // Custom hook for scroll animations
 const useScrollAnimation = (threshold = 0.1) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -118,7 +109,7 @@ export const Hero = () => {
                   View My Work
                 </a>
                 <a
-                  href="/resume.pdf"
+                  href="/KristanDharel-Resume.pdf"
                   download
                   className="px-6 py-3 border border-blue-600 text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-all transform hover:scale-105 dark:border-teal-400 dark:text-teal-400 dark:hover:bg-gray-800"
                 >
@@ -153,7 +144,7 @@ export const Hero = () => {
             <AnimatedSection direction="right" delay={300}>
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-600 dark:border-teal-400 shadow-xl transform hover:scale-105 transition-transform">
                 <img
-                  src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  src='/dharel.png'
                   alt="Kristan Dharel"
                   className="w-full h-full object-cover"
                 />

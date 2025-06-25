@@ -41,7 +41,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
             ))}
           </nav>
           <div className="flex items-center space-x-4">
-            <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+            {/* <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} /> */}
             <a
               href="#contact"
               onClick={(e) => {

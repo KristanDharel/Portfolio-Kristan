@@ -13,9 +13,9 @@ import { Header } from "./component/Header";
 import { Hero } from "./component/Hero";
 import Services from "./component/Services";
 import { Projects } from "./component/Projects";
-import { Contact } from "lucide-react";
 import { About } from "./component/About";
 import { Footer } from "./component/Footer";
+import { Contact } from "./component/Contact";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -58,7 +58,7 @@ function App() {
         <Projects projects={projects} />
         <Contact />
       </main>
-      <Footer socialLinks={socialLinks} />
+      {/* <Footer socialLinks={socialLinks} /> */}
     </div>
   );
 }
