@@ -17,6 +17,7 @@ import { About } from "./component/About";
 import { Footer } from "./component/Footer";
 import { Contact } from "./component/Contact";
 import { Certifications } from "./component/Certification";
+import ScrollToTop from "./component/ScrollTop";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -57,9 +58,10 @@ function App() {
         <About />
         <Services services={services} />
         <Projects projects={projects} />
-        <Certifications/>
+        <Certifications />
         <Contact />
       </main>
+      <ScrollToTop />
       {/* <Footer socialLinks={socialLinks} /> */}
     </div>
   );
