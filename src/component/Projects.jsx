@@ -47,7 +47,7 @@ export const Projects = ({ projects }) => {
                       rel="noopener noreferrer"
                       className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-teal-400 transition-colors"
                     >
-                      <FaGithub className="mr-2" /> Code
+                      {/* <FaGithub className="mr-2" /> Code */}
                     </a>
                   )}
                   {project.live && (

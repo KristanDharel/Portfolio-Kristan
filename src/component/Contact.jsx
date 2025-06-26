@@ -149,7 +149,7 @@ export const Contact = () => {
             className="lg:w-1/2"
           >
             <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 p-8 rounded-xl shadow-2xl border border-gold-800/30 backdrop-blur-sm">
-              <h3 className="text-2xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">
+              <h3 className="text-2xl font-semibold mb-6 text-white bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">
                 Contact Information
               </h3>
               <div className="space-y-6">

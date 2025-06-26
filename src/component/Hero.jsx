@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  FaGithub,
-  FaLinkedin
-} from "react-icons/fa";
-// import dharel from "/public/dharel"
-// Custom hook for scroll animations
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
 const useScrollAnimation = (threshold = 0.1) => {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);
@@ -144,7 +140,7 @@ export const Hero = () => {
             <AnimatedSection direction="right" delay={300}>
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-600 dark:border-teal-400 shadow-xl transform hover:scale-105 transition-transform">
                 <img
-                  src='/dharel.png'
+                  src="/dharel.png"
                   alt="Kristan Dharel"
                   className="w-full h-full object-cover"
                 />

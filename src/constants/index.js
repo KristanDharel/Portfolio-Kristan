@@ -59,34 +59,31 @@ export const projects = [
     live: "https://example.com",
   },
 
-  {
-    title: "Real-time Chat App",
-    description:
-      "A chat application with real-time messaging and notification features.",
-    tech: ["React", "Node.js", "Socket.io", "MongoDB"],
-    image:
-      "https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com",
-    live: "https://example.com",
-  },
+  // {
+  //   title: "Real-time Chat App",
+  //   description:
+  //     "A chat application with real-time messaging and notification features.",
+  //   tech: ["React", "Node.js", "Socket.io", "MongoDB"],
+  //   image: "/VideoCall.png",
+  //   github: "https://github.com",
+  //   live: "https://example.com",
+  // },
 
   {
     title: "Online Bidding Platform",
     description:
       "A real-time auction site with live bidding functionality and notifications.",
     tech: ["MERN Stack", "Socket.io", "Redux", "PayPal API"],
-    image:
-      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "/Thriftify.png",
     github: "https://github.com/KristanDharel/AdvanceRTC.git",
     live: "https://example.com",
   },
   {
     title: "Video Call Platform",
     description:
-      "A web-based video conferencing application with screen sharing and chat.",
+      "A web-based video conferencing application with screen sharing .",
     tech: ["MERN Stack", "WebRTC", "Socket.io", "Material UI"],
-    image:
-      "https://images.unsplash.com/photo-1585620385456-4759f9b5c7d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "/VideoCall.png",
     github: "https://github.com",
     live: "https://example.com",
   },
@@ -106,7 +103,7 @@ export const projects = [
       "A cross-platform application for tracking personal finances with analytics.",
     tech: ["C#", ".NET MAUI", "Blazor", "SQLite"],
     image:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "/Expense.png",
     github: "https://github.com/KristanDharel",
     live: "https://example.com",
   },
