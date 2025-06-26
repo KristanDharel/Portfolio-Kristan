@@ -6,6 +6,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Projects", href: "#projects" },
+    { name: "Certification", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ];
 

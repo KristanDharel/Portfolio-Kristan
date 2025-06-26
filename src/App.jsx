@@ -16,6 +16,7 @@ import { Projects } from "./component/Projects";
 import { About } from "./component/About";
 import { Footer } from "./component/Footer";
 import { Contact } from "./component/Contact";
+import { Certifications } from "./component/Certification";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -56,6 +57,7 @@ function App() {
         <About />
         <Services services={services} />
         <Projects projects={projects} />
+        <Certifications/>
         <Contact />
       </main>
       {/* <Footer socialLinks={socialLinks} /> */}
