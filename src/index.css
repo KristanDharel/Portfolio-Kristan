@@ -15,3 +15,33 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* For WebKit browsers */
+.scrollbar-hide::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.dark .scrollbar-hide::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark .scrollbar-hide::-webkit-scrollbar-thumb {
+  background: #6b7280;
+}
+
+.dark .scrollbar-hide::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
