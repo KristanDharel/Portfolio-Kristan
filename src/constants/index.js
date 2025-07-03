@@ -73,7 +73,7 @@ export const projects = [
     title: "Online Bidding Platform",
     description:
       "A real-time auction site with live bidding functionality and notifications.",
-    tech: ["MERN Stack", "Socket.io", "Redux", "PayPal API"],
+    tech: ["MERN Stack", "Socket.io", "Redux", "Khalti, API"],
     image: "/Thriftify.png",
     github: "https://github.com/KristanDharel/AdvanceRTC.git",
     live: "https://example.com",
@@ -102,8 +102,7 @@ export const projects = [
     description:
       "A cross-platform application for tracking personal finances with analytics.",
     tech: ["C#", ".NET MAUI", "Blazor", "SQLite"],
-    image:
-      "/Expense.png",
+    image: "/Expense.png",
     github: "https://github.com/KristanDharel",
     live: "https://example.com",
   },
