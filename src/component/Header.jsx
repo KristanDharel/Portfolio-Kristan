@@ -1,31 +1,34 @@
-import { ThemeToggle } from "./ThemeToggle";
+import { useNavigate } from "react-router-dom";
 
-export const Header = ({ darkMode, setDarkMode }) => {
+export const Header = () => {
+  const navigate = useNavigate();
+
   const navLinks = [
-    { name: "Home", href: "#home" },
+    { name: "Home", href: "/" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
+    { name: "Projects", href: "/projects" },
     { name: "Certification", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ];
 
   const handleNavClick = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("#")) {
+      // Handle hash navigation (single-page sections)
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Handle route navigation (like project details)
+      navigate(href);
     }
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-sm bg-white/80 dark:bg-gray-900/80 shadow-sm">
+    <header className="w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-teal-400 bg-clip-text text-transparent">
-              Kristan Dharel
-            </span>
-          </div>
+        <div className="flex justify-center items-center h-16">
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
               <a
@@ -35,25 +38,12 @@ export const Header = ({ darkMode, setDarkMode }) => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="px-3 py-2 text-sm font-medium transition-colors text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-teal-400"
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-teal-400 transition-colors"
               >
                 {link.name}
               </a>
             ))}
           </nav>
-          <div className="flex items-center space-x-4">
-            {/* <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} /> */}
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("#contact");
-              }}
-              className="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-teal-600 dark:hover:bg-teal-700"
-            >
-              Hire Me
-            </a>
-          </div>
         </div>
       </div>
     </header>

@@ -19,7 +19,7 @@
     "date-fns": "^4.1.0",
     "firebase": "^11.4.0",
     "formik": "^2.4.5",
-    "framer-motion": "^12.19.1",
+    "framer-motion": "^12.23.0",
     "jspdf": "^3.0.1",
     "jspdf-autotable": "^5.0.2",
     "khalti-checkout-web": "^2.2.0",

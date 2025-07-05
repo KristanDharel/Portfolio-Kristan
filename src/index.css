@@ -45,3 +45,44 @@ code {
 .dark .scrollbar-hide::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
 }
+/* Add these animations to your CSS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+/* Add these animations to your CSS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Add this for the background effect */
+body {
+  background-color: #000000;
+  color: #fff;
+}
+/* Add this to your global styles */
+.star {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  will-change: transform, opacity;
+}
