@@ -419,7 +419,7 @@ function App() {
       {/* Background stars */}
       <div className="fixed inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         {stars.map((star) => (
-          <motion.div
+          <div
             key={star.id}
             className="star absolute rounded-full bg-white"
             style={{

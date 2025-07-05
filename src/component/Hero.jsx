@@ -1181,68 +1181,121 @@ const CinematicText = ({ children, delay = 0, duration = 1000 }) => {
   );
 };
 
+// export const GateReveal = ({ children }) => {
+//   const [ref, isVisible] = useScrollAnimation();
+//   const [animationStage, setAnimationStage] = useState(0);
+
+//   useEffect(() => {
+//     if (!isVisible) return;
+
+//     const sequence = [
+//       () => setAnimationStage(1),
+//       () => setTimeout(() => setAnimationStage(2), 800),
+//       () => setTimeout(() => setAnimationStage(3), 1600),
+//     ];
+
+//     sequence.forEach((step, i) => setTimeout(step, i * 800));
+//   }, [isVisible]);
+
+//   return (
+//     <div ref={ref} className="relative w-full overflow-hidden">
+//       {/* Left gate line */}
+//       <div
+//         className={`fixed top-0 left-1/2 h-screen w-1 bg-gradient-to-b from-transparent via-white to-transparent transform transition-all duration-1000 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] ${
+//           animationStage >= 1 ? "opacity-100" : "opacity-0"
+//         } ${animationStage >= 2 ? "-translate-x-[50vw]" : "-translate-x-1/2"}`}
+//         style={{
+//           boxShadow: "0 0 15px rgba(255, 255, 255, 0.7)",
+//           zIndex: 40,
+//         }}
+//       />
+
+//       {/* Right gate line */}
+//       <div
+//         className={`fixed top-0 left-1/2 h-screen w-1 bg-gradient-to-b from-transparent via-white to-transparent transform transition-all duration-1000 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] ${
+//           animationStage >= 1 ? "opacity-100" : "opacity-0"
+//         } ${animationStage >= 2 ? "translate-x-[50vw]" : "-translate-x-1/2"}`}
+//         style={{
+//           boxShadow: "0 0 15px rgba(255, 255, 255, 0.7)",
+//           zIndex: 40,
+//         }}
+//       />
+
+//       {/* Sparkle effects */}
+//       {animationStage >= 2 && (
+//         <>
+//           <div
+//             className="fixed top-1/2 left-1/2 w-4 h-4 bg-white rounded-full opacity-0 animate-sparkle-1"
+//             style={{ zIndex: 50 }}
+//           />
+//           <div
+//             className="fixed top-1/2 left-1/2 w-3 h-3 bg-blue-400 rounded-full opacity-0 animate-sparkle-2"
+//             style={{ zIndex: 50 }}
+//           />
+//           <div
+//             className="fixed top-1/2 left-1/2 w-2 h-2 bg-purple-400 rounded-full opacity-0 animate-sparkle-3"
+//             style={{ zIndex: 50 }}
+//           />
+//         </>
+//       )}
+
+//       {/* Content */}
+//       <div
+//         className={`relative transition-all duration-700 ${
+//           animationStage >= 3 ? "opacity-100" : "opacity-0"
+//         }`}
+//         style={{ zIndex: 30 }}
+//       >
+//         {children}
+//       </div>
+//     </div>
+//   );
+// };
 export const GateReveal = ({ children }) => {
   const [ref, isVisible] = useScrollAnimation();
-  const [animationStage, setAnimationStage] = useState(0);
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
-    if (!isVisible) return;
-
-    const sequence = [
-      () => setAnimationStage(1),
-      () => setTimeout(() => setAnimationStage(2), 800),
-      () => setTimeout(() => setAnimationStage(3), 1600),
-    ];
-
-    sequence.forEach((step, i) => setTimeout(step, i * 800));
+    if (isVisible) {
+      // Skip complex animations on mobile/small screens
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
+        setAnimationComplete(true);
+      } else {
+        const timer = setTimeout(() => {
+          setAnimationComplete(true);
+        }, 2000);
+        return () => clearTimeout(timer);
+      }
+    }
   }, [isVisible]);
 
   return (
-    <div ref={ref} className="relative w-full overflow-hidden">
-      {/* Left gate line */}
-      <div
-        className={`fixed top-0 left-1/2 h-screen w-1 bg-gradient-to-b from-transparent via-white to-transparent transform transition-all duration-1000 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] ${
-          animationStage >= 1 ? "opacity-100" : "opacity-0"
-        } ${animationStage >= 2 ? "-translate-x-[50vw]" : "-translate-x-1/2"}`}
-        style={{
-          boxShadow: "0 0 15px rgba(255, 255, 255, 0.7)",
-          zIndex: 40,
-        }}
-      />
-
-      {/* Right gate line */}
-      <div
-        className={`fixed top-0 left-1/2 h-screen w-1 bg-gradient-to-b from-transparent via-white to-transparent transform transition-all duration-1000 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] ${
-          animationStage >= 1 ? "opacity-100" : "opacity-0"
-        } ${animationStage >= 2 ? "translate-x-[50vw]" : "-translate-x-1/2"}`}
-        style={{
-          boxShadow: "0 0 15px rgba(255, 255, 255, 0.7)",
-          zIndex: 40,
-        }}
-      />
-
-      {/* Sparkle effects */}
-      {animationStage >= 2 && (
+    <div ref={ref} className="relative w-full">
+      {/* Only show gate animation on larger screens */}
+      {!animationComplete && window.innerWidth >= 768 && (
         <>
           <div
-            className="fixed top-1/2 left-1/2 w-4 h-4 bg-white rounded-full opacity-0 animate-sparkle-1"
-            style={{ zIndex: 50 }}
+            className="fixed top-0 left-1/2 h-screen w-1 bg-gradient-to-b from-transparent via-white to-transparent transform transition-all duration-1000 ease-out z-40"
+            style={{
+              boxShadow: "0 0 15px rgba(255, 255, 255, 0.7)",
+              transform: isVisible ? "translateX(-50vw)" : "translateX(-50%)",
+            }}
           />
           <div
-            className="fixed top-1/2 left-1/2 w-3 h-3 bg-blue-400 rounded-full opacity-0 animate-sparkle-2"
-            style={{ zIndex: 50 }}
-          />
-          <div
-            className="fixed top-1/2 left-1/2 w-2 h-2 bg-purple-400 rounded-full opacity-0 animate-sparkle-3"
-            style={{ zIndex: 50 }}
+            className="fixed top-0 left-1/2 h-screen w-1 bg-gradient-to-b from-transparent via-white to-transparent transform transition-all duration-1000 ease-out z-40"
+            style={{
+              boxShadow: "0 0 15px rgba(255, 255, 255, 0.7)",
+              transform: isVisible ? "translateX(50vw)" : "translateX(-50%)",
+            }}
           />
         </>
       )}
 
-      {/* Content */}
+      {/* Content - always visible on mobile */}
       <div
         className={`relative transition-all duration-700 ${
-          animationStage >= 3 ? "opacity-100" : "opacity-0"
+          animationComplete || window.innerWidth < 768 ? "opacity-100" : "opacity-0"
         }`}
         style={{ zIndex: 30 }}
       >
@@ -1251,7 +1304,6 @@ export const GateReveal = ({ children }) => {
     </div>
   );
 };
-
 export const Hero = () => {
   const heroRef = useRef(null);
 
@@ -1348,120 +1400,7 @@ export const Hero = () => {
         </div>
 
         {/* Global styles */}
-        <style jsx global>{`
-          @keyframes float1 {
-            0%,
-            100% {
-              transform: translate(0, 0);
-            }
-            50% {
-              transform: translate(-10px, -10px);
-            }
-          }
-          @keyframes float2 {
-            0%,
-            100% {
-              transform: translate(0, 0);
-            }
-            50% {
-              transform: translate(15px, 10px);
-            }
-          }
-          @keyframes float3 {
-            0%,
-            100% {
-              transform: translate(0, 0);
-            }
-            50% {
-              transform: translate(5px, 15px);
-            }
-          }
-          .animate-float1 {
-            animation: float1 8s ease-in-out infinite;
-          }
-          .animate-float2 {
-            animation: float2 10s ease-in-out infinite;
-          }
-          .animate-float3 {
-            animation: float3 12s ease-in-out infinite;
-          }
-
-          @keyframes sparkle-1 {
-            0% {
-              transform: translate(0, 0) scale(0);
-              opacity: 0;
-            }
-            20% {
-              transform: translate(-10px, -10px) scale(1);
-              opacity: 0.8;
-            }
-            40% {
-              transform: translate(5px, 15px) scale(0.5);
-              opacity: 0.5;
-            }
-            60% {
-              transform: translate(15px, -5px) scale(0.3);
-              opacity: 0.3;
-            }
-            100% {
-              transform: translate(0, 0) scale(0);
-              opacity: 0;
-            }
-          }
-          @keyframes sparkle-2 {
-            0% {
-              transform: translate(0, 0) scale(0);
-              opacity: 0;
-            }
-            20% {
-              transform: translate(10px, -5px) scale(1);
-              opacity: 0.6;
-            }
-            40% {
-              transform: translate(-5px, 10px) scale(0.7);
-              opacity: 0.4;
-            }
-            60% {
-              transform: translate(-10px, -10px) scale(0.3);
-              opacity: 0.2;
-            }
-            100% {
-              transform: translate(0, 0) scale(0);
-              opacity: 0;
-            }
-          }
-          @keyframes sparkle-3 {
-            0% {
-              transform: translate(0, 0) scale(0);
-              opacity: 0;
-            }
-            20% {
-              transform: translate(-5px, 5px) scale(1);
-              opacity: 0.7;
-            }
-            40% {
-              transform: translate(10px, 5px) scale(0.5);
-              opacity: 0.4;
-            }
-            60% {
-              transform: translate(-15px, 10px) scale(0.2);
-              opacity: 0.1;
-            }
-            100% {
-              transform: translate(0, 0) scale(0);
-              opacity: 0;
-            }
-          }
-          .animate-sparkle-1 {
-            animation: sparkle-1 1.5s ease-out;
-          }
-          .animate-sparkle-2 {
-            animation: sparkle-2 1.5s ease-out 0.2s;
-          }
-          .animate-sparkle-3 {
-            animation: sparkle-3 1.5s ease-out 0.4s;
-          }
-        `}</style>
+       
       </section>
     </div>
   );
