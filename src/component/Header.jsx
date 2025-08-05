@@ -4,10 +4,10 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const navLinks = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "#" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
-    { name: "Projects", href: "/projects" },
+    { name: "Projects", href: "#projects" },
     { name: "Certification", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ];
